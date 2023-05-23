@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
  <span>Reddit Viewer</span>
  <span class="spacer"></span>
- <mat-form-field>
+ <mat-form-field class="selector-container">
   <mat-label>Choose Argument</mat-label>
   <mat-select [(ngModel)]="selectedArgument" (ngModelChange)="loadPosts()">
     <mat-option value="all">All</mat-option>
@@ -22,3 +22,46 @@
   <mat-icon>{{isLight ? "dark_mode" : "light_mode"}}</mat-icon>
 </button>
 </mat-toolbar>
+
+<!-- <div *ngFor="let post of posts" class="post-container">
+  <span>{{post.title}}</span>
+  <span>{{post.author}}</span>
+  <span>{{post.selftext}}</span>
+  <span>{{post.score}}</span>
+  <span>{{post.url}}</span>
+  <span>{{post.permalink}}</span>
+  <span>{{post.thumbnail}}</span>
+</div> -->
+
+<!-- <mat-card *ngFor="let post of posts" class="post-container">
+  <mat-card-header>
+    <mat-card-title>{{post.title}}</mat-card-title>
+    <mat-card-subtitle>{{post.author}}</mat-card-subtitle>
+    <mat-card-subtitle>{{post.selftext}}</mat-card-subtitle>
+    <mat-card-subtitle>{{post.score}}</mat-card-subtitle>
+    <mat-card-subtitle>{{post.url}}</mat-card-subtitle>
+    <mat-card-subtitle>{{post.permalink}}</mat-card-subtitle>
+    <mat-card-subtitle>{{post.thumbnail}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card> -->
+
+<div class="main-container">
+  <mat-card *ngFor="let post of posts" class="post-container example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{post.title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{post.thumbnail}}" alt="Thumbnail">
+    <div class="details">
+      <mat-card-subtitle class="author-line">Author: {{post.author}}</mat-card-subtitle>
+      <mat-card-subtitle align="end" class="score-line">Score: {{post.score}}</mat-card-subtitle>
+    </div>
+    <mat-card-content>
+        {{post.selftext}}
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-button href="{{post.url}}" target="_blank">URL</a>
+      <a mat-button href="www.reddit.com{{post.permalink}}" target="_blank">PERMALINK</a>
+    </mat-card-actions>
+  </mat-card>
+</div>
