@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 100px;
 }
 .post-container{
   display: flex;
@@ -22,4 +23,9 @@
 
 .selector-container{
   padding-top: 20px;
+}
+
+mat-toolbar{
+  position: fixed;
+  z-index: 100;
 }

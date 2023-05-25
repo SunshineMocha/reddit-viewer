@@ -1,6 +1,13 @@
 <mat-toolbar color="primary">
+  <a href="./home-page.component.html">
+    <button mat-icon-button>
+    <mat-icon>home</mat-icon>
+    </button>
+  </a>
+  <span class="spacer"></span>
  <span>Reddit Viewer</span>
  <span class="spacer"></span>
+
  <mat-form-field class="selector-container">
   <mat-label>Choose Argument</mat-label>
   <mat-select [(ngModel)]="selectedArgument" (ngModelChange)="loadPosts()">
@@ -9,7 +16,7 @@
     <mat-option value="worldnews">News</mat-option>
     <mat-option value="aww">Animals</mat-option>
     <mat-option value="pokemon">Pokemon</mat-option>
-
+    <mat-option value="splatoon">Splatoon</mat-option>
   </mat-select>
 </mat-form-field>
  <!-- <button *ngIf="isLight" mat-icon-button (click)="changeThemes()">
@@ -51,7 +58,7 @@
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{post.title}}</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="{{post.thumbnail}}" alt="Thumbnail">
+    <img mat-card-image src="{{post.url}}" alt="Thumbnail"> <!-- SUPPOSEDLY THIS IS THE THUMBNAIL, BUT SINCE QUALITY IS NOT AS GOOD, REPLACED WITH ORIGINAL PIC-->
     <div class="details">
       <mat-card-subtitle class="author-line">Author: {{post.author}}</mat-card-subtitle>
       <mat-card-subtitle align="end" class="score-line">Score: {{post.score}}</mat-card-subtitle>
@@ -59,7 +66,7 @@
     <mat-card-content>
         {{post.selftext}}
     </mat-card-content>
-    <mat-card-actions> <!-- supposedly this will upvote or downvote the post depending if you are logged or not -->
+    <!-- <mat-card-actions>  supposedly this will upvote or downvote the post depending if you are logged or not
       <button mat-icon-button>
         <mat-icon>thumb_up</mat-icon>
       </button>
@@ -67,10 +74,10 @@
       <button mat-icon-button>
         <mat-icon>thumb_down</mat-icon>
       </button>
-    </mat-card-actions>
+    </mat-card-actions> -->
     <mat-card-actions>
       <a mat-button href="{{post.url}}" target="_blank">URL</a>
-      <a mat-button href="www.reddit.com{{post.permalink}}" target="_blank">PERMALINK</a>
+      <a mat-button href="https://www.reddit.com{{post.permalink}}" target="_blank">PERMALINK</a>
     </mat-card-actions>
   </mat-card>
 </div>
